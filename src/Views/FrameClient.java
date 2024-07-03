@@ -6,9 +6,9 @@ package Views;
 
 import Models.Client;
 import Models.Employe;
+import Models.dataBase;
 import java.sql.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -250,7 +250,7 @@ public class FrameClient extends javax.swing.JFrame {
          String sql1 ="select* from Clients";
         try {
             
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             stm=Conn.createStatement();
             rst=stm.executeQuery(sql1);
             while(rst.next())
@@ -315,7 +315,7 @@ public class FrameClient extends javax.swing.JFrame {
          String sql1 ="select* from Clients";
          int i=0;
         try {
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             stm=Conn.createStatement();
             rst=stm.executeQuery(sql1);
             i=1;
@@ -341,7 +341,7 @@ public class FrameClient extends javax.swing.JFrame {
         // TODO add your handling code here:
         
        try {
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             PreparedStatement mystm  = Conn.prepareStatement("insert into Clients values(?,?,?,?)");
             int idclt=Integer.parseInt(txtidclt.getText());
             String nom=txtnom.getText();
@@ -367,7 +367,7 @@ public class FrameClient extends javax.swing.JFrame {
         // TODO add your handling code here:
               
         try {
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             PreparedStatement mystm  = Conn.prepareStatement("update  Clients set Nom=?,Prenom=?,Contact=?"+"where IdClient=?");
             
             String nom=txtnom.getText();
@@ -422,9 +422,6 @@ public class FrameClient extends javax.swing.JFrame {
       private  Connection Conn = null;
       private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
       
       
     private void afficher() {

@@ -6,8 +6,8 @@ package Views;
 
 import Models.Client;
 import Models.Employe;
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -186,7 +186,7 @@ public class FrameRecherche extends javax.swing.JFrame {
     private void btnrechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrechercherActionPerformed
         try {
         // Connexion à la base de données
-        Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+        Conn = (Connection) dataBase.getConnection();
         // Requête SQL de base avec une jointure
         String req = "SELECT IdClient, Nom, Prenom, Contact, nocmd, DateVente, Total "
                    + "FROM Clients "
@@ -302,8 +302,4 @@ public class FrameRecherche extends javax.swing.JFrame {
       private  Connection Conn = null;
       private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
-     
 }

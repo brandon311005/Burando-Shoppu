@@ -5,8 +5,8 @@
 package Views;
 
 import Models.Employe;
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -247,7 +247,7 @@ public class FrameEmploye extends javax.swing.JFrame {
          try {
              // TODO add your handling code here:
 
-             Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+             Conn = (Connection) dataBase.getConnection();
              PreparedStatement mystm  = Conn.prepareStatement("update  Employees set NomEmploy=?,PrenomEmploy=?,Role=?"+"where Login=? or PassWord=?");
              
              String log=txtlogin.getText();
@@ -339,7 +339,7 @@ public class FrameEmploye extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
 
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             PreparedStatement mystm  = Conn.prepareStatement("insert into Employees values(?,?,?,?,?)");
             String log=txtlogin.getText();
             String nom=txtnom.getText();
@@ -366,7 +366,7 @@ public class FrameEmploye extends javax.swing.JFrame {
         try {
              // TODO add your handling code here:
              
-             Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+             Conn = (Connection) dataBase.getConnection();
              stm=Conn.createStatement();
              rst=stm.executeQuery(sql1);
              while(rst.next())
@@ -448,10 +448,6 @@ public class FrameEmploye extends javax.swing.JFrame {
       private  Connection Conn = null;
       private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
-      
       
 
 }

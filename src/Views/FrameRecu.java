@@ -6,12 +6,12 @@ package Views;
 
 import Models.Client;
 import Models.Employe;
+import Models.dataBase;
 import java.awt.Graphics2D;
 import java.awt.PrintJob;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -434,7 +434,7 @@ public class FrameRecu extends javax.swing.JFrame {
             client.setText(Clt.getNom()+" "+Clt.getPrenom());
             lbdate.setText(new SimpleDateFormat("dd/mm/yyyy").format(datecmd));
         
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             mystm  = Conn.prepareStatement("select IdVente,IdProduit,NomProduit,PrixUn,QteVendu,SousTotal from Vente join Produits using(IdProduit,NomProduit,PrixUn)  where nocmd=?");
             mystm.setInt(1,idcmd);
             rst = mystm.executeQuery();
@@ -538,7 +538,4 @@ public class FrameRecu extends javax.swing.JFrame {
       private  Connection Conn = null;
       private PreparedStatement mystm = null; 
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
 }

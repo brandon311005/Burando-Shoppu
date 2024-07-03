@@ -5,8 +5,8 @@
 package Views;
 
 import Models.Article;
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -292,7 +292,7 @@ public class FrameProduit extends javax.swing.JFrame {
              // TODO add your handling code here:
              
              
-             Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+             Conn = (Connection) dataBase.getConnection();
              PreparedStatement mystm  = Conn.prepareStatement("insert into Produits values(?,?,?,?,?)");
              String id=txtidart.getText();
              String nom=txtnom.getText();
@@ -321,7 +321,7 @@ public class FrameProduit extends javax.swing.JFrame {
              // TODO add your handling code here:
              
              
-             Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+             Conn = (Connection) dataBase.getConnection();
              PreparedStatement mystm  = Conn.prepareStatement("update  Produits set NomProduit=?,PrixUn=?,StockDispo=? where IdProduit=? or IdCategorie=?");
              
              String id=txtidart.getText();
@@ -369,7 +369,7 @@ public class FrameProduit extends javax.swing.JFrame {
         String sql1 ="select* from Produits"; 
         try {
              // TODO add your handling code here:
-             Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+             Conn = (Connection) dataBase.getConnection();
              stm=Conn.createStatement();
              rst=stm.executeQuery(sql1);
              while(rst.next())
@@ -451,9 +451,6 @@ public class FrameProduit extends javax.swing.JFrame {
       private  Connection Conn = null;
       private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
       
       
 }

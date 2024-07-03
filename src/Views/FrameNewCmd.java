@@ -7,8 +7,8 @@ package Views;
 import Models.Article;
 import Models.Client;
 import Models.Employe;
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -379,7 +379,7 @@ public class FrameNewCmd extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
             // TODO add your handling code here:
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             stm = Conn.createStatement();
             rst = stm.executeQuery("select* from Clients");
             while(rst.next())
@@ -443,7 +443,7 @@ public class FrameNewCmd extends javax.swing.JFrame {
         int nocmd;
         try {
          // TODO add your handling code here:
-         Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+         Conn = (Connection) dataBase.getConnection();
          PreparedStatement ps;
          
          stm=Conn.createStatement();
@@ -608,7 +608,5 @@ public class FrameNewCmd extends javax.swing.JFrame {
       private  Connection Conn = null;
       private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
+
 }

@@ -5,8 +5,8 @@
 package Views;
 
 import Models.Employe;
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -331,7 +331,7 @@ public class FramePrincipale extends javax.swing.JFrame {
     private void btnvaliderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaliderActionPerformed
         try {
             // TODO add your handling code here:
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             PreparedStatement ps= Conn.prepareStatement("select * from Employees where Login=? and Password=?");
             ps.setString(1, lblog.getText());
             ps.setString(2, lbpsw.getText());
@@ -528,8 +528,5 @@ public class FramePrincipale extends javax.swing.JFrame {
       private  Connection Conn = null;
       private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
 
 }

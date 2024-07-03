@@ -6,12 +6,11 @@ package Views;
 
 import Models.Client;
 import Models.Employe;
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -246,7 +245,7 @@ public class FrameListCmd extends javax.swing.JFrame {
             lbcontact.setText(Clts.getContact()+"");
             
             String Sql= "select nocmd,DateVente,Total from Commande  where IdClient=? group by nocmd,DateVente,Total";
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             PreparedStatement mystm  = Conn.prepareStatement(Sql);
             mystm.setInt(1, Clts.getIdclt());
             rst=mystm.executeQuery();
@@ -306,9 +305,6 @@ public class FrameListCmd extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
    // Variables de connection
       private  Connection Conn = null;
-      private  Statement stm = null;
       private  ResultSet rst = null;
-      private  String Utilisateur = "root";
-      private  String MP = null;
-      private  String DB ="jdbc:mysql://Localhost:3306/sygbc";
+
 }

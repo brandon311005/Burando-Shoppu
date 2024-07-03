@@ -1,8 +1,8 @@
 package Views;
 
 
+import Models.dataBase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,9 +40,7 @@ public class FrameListEmploy extends javax.swing.JFrame {
         Connection Conn = null;
         Statement stm = null;
         ResultSet rst = null;
-        String Utilisateur = "root";
-        String MP = null;
-        String DB ="jdbc:mysql://Localhost:3306/sygbc";
+       
      
         String sql1;
         sql1 = "select * from Employees";
@@ -56,7 +54,7 @@ public class FrameListEmploy extends javax.swing.JFrame {
         }
         
         try {
-            Conn = DriverManager.getConnection(DB+"?useUnicode=true&characterEncoding=UTF-8",Utilisateur,MP);
+            Conn = (Connection) dataBase.getConnection();
             System.out.println("Pilote charge, connexion ouverte");
              
             try{
