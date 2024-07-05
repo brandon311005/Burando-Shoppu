@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -26,8 +27,9 @@ public class FrameListeProduit extends javax.swing.JFrame {
      */
     public FrameListeProduit() {
         initComponents();
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tableau.addColumn("Id Produit");
         tableau.addColumn("Nom");
         tableau.addColumn("Prix Unitaire");

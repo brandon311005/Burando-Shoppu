@@ -37,7 +37,7 @@ public class FrameClient extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.Emplo=Emplo;
-    ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
+    ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
     }
 
@@ -426,7 +426,8 @@ public class FrameClient extends javax.swing.JFrame {
 
     private void btnReturn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturn1ActionPerformed
         // TODO add your handling code here:
-        new FramePrincipale().setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_btnReturn1ActionPerformed
 
 

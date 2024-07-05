@@ -30,7 +30,7 @@ public class FramePrincipale extends javax.swing.JFrame {
      */
     public FramePrincipale() {
         initComponents();
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
         setJMenuBar(jMenuBar2);
     }

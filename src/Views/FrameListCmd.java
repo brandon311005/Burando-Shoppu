@@ -33,7 +33,7 @@ public class FrameListCmd extends javax.swing.JFrame {
         initComponents();
         this.Clts=Clts;
         this.Emplo=Emplo;
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
         
     }

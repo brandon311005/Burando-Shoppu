@@ -6,6 +6,7 @@ package Views;
 
 import Models.Article;
 import Models.dataBase;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -402,7 +403,8 @@ public class FrameProduit extends javax.swing.JFrame {
 
     private void btnReturn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturn1ActionPerformed
         // TODO add your handling code here:
-        new FramePrincipale().setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_btnReturn1ActionPerformed
 
     /**

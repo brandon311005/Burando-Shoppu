@@ -28,7 +28,7 @@ public class FrameListEmploy extends javax.swing.JFrame {
     public FrameListEmploy() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
         tableau.addColumn("Matricule");
         tableau.addColumn("Nom");
