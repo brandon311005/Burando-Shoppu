@@ -29,17 +29,19 @@ public class FrameNewCmd extends javax.swing.JFrame {
  float tht;
   int qte;  
   Client clt;
-   private Date d;
+   private Date datecmd;
     private Employe Emplo;
+    int nocmd;
 
     /**
      * Creates new form FrameNewCmd
      */
-    public FrameNewCmd() {
+    public FrameNewCmd(Employe Emplo) {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.Emplo=Emplo;
     }
 
     /**
@@ -81,6 +83,7 @@ public class FrameNewCmd extends javax.swing.JFrame {
         lbttc = new javax.swing.JFormattedTextField();
         btnEnregistrer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnImprimer = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -357,6 +360,15 @@ public class FrameNewCmd extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        btnImprimer.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        btnImprimer.setForeground(new java.awt.Color(255, 0, 255));
+        btnImprimer.setText("Imprimer");
+        btnImprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -365,12 +377,18 @@ public class FrameNewCmd extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(244, 244, 244)
+                .addComponent(btnImprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnImprimer)
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         pack();
@@ -440,7 +458,7 @@ public class FrameNewCmd extends javax.swing.JFrame {
         String sql1="insert into Commande values(?,?,?,?)";
         String sql2 = "select* from Commande";
         String sql3="select* from Produits where IdProduit=?";
-        int nocmd;
+        
         try {
          // TODO add your handling code here:
          Conn = (Connection) dataBase.getConnection();
@@ -457,9 +475,9 @@ public class FrameNewCmd extends javax.swing.JFrame {
          rst.close();
          ps = Conn.prepareStatement(sql1,Statement.RETURN_GENERATED_KEYS);
          Date lcd=new Date();
-         java.sql.Date date= new java.sql.Date(lcd.getTime());
+         datecmd= new java.sql.Date(lcd.getTime());
          ps.setInt(1, nocmd);
-         ps.setDate(2, date);
+         ps.setDate(2, (java.sql.Date) datecmd);
          ps.setString(3,lbttc.getText());
          ps.setString(4,lbidclt.getText());
         
@@ -499,7 +517,17 @@ public class FrameNewCmd extends javax.swing.JFrame {
          
          }
          JOptionPane.showMessageDialog(null,"Commande sauvegarde avec succes");
-         df.setRowCount(0);
+        int response = JOptionPane.showConfirmDialog(null, "Voulez-vous enrégistrez le reçu ?", "Impression du reçu", JOptionPane.YES_NO_OPTION);
+         if(response==JOptionPane.YES_OPTION)
+         {
+             new FrameRecu(clt,nocmd, datecmd, Emplo).setVisible(true);
+             df.setRowCount(0);
+             tht=0;
+             lbtht.setText("0.0");
+             lbtva.setText("0.0");
+             lbttc.setText("0.0");
+         }
+        df.setRowCount(0);
          tht=0;
          lbtht.setText("0.0");
          lbtva.setText("0.0");
@@ -509,7 +537,9 @@ public class FrameNewCmd extends javax.swing.JFrame {
      }
             
     }//GEN-LAST:event_btnEnregistrerActionPerformed
-
+public void imprimerRecu(){
+    
+}
     private void lbtvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbtvaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lbtvaActionPerformed
@@ -537,43 +567,16 @@ public class FrameNewCmd extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameNewCmd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameNewCmd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameNewCmd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameNewCmd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnImprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimerActionPerformed
+        // TODO add your handling code here:
+        new FrameRecu(clt,nocmd, datecmd, Emplo).setVisible(true);
+    }//GEN-LAST:event_btnImprimerActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameNewCmd().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnregistrer;
+    private javax.swing.JButton btnImprimer;
     private javax.swing.JButton btnajouter;
     private javax.swing.JComboBox<Client> cbxClt;
     private javax.swing.JComboBox<Article> cbxart;

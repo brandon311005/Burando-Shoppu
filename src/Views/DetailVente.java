@@ -93,6 +93,7 @@ public class DetailVente extends javax.swing.JFrame {
         btnEnregistrer = new javax.swing.JButton();
         btnSupp = new javax.swing.JButton();
         Imprimer = new javax.swing.JButton();
+        btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -403,6 +404,8 @@ public class DetailVente extends javax.swing.JFrame {
             }
         });
 
+        btnReturn.setText("Retour");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -417,13 +420,21 @@ public class DetailVente extends javax.swing.JFrame {
                 .addComponent(btnEnregistrer)
                 .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(Imprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(Imprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnReturn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(btnReturn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Recu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -583,6 +594,7 @@ public class DetailVente extends javax.swing.JFrame {
     private javax.swing.JButton Imprimer;
     private javax.swing.JPanel Recu;
     private javax.swing.JButton btnEnregistrer;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnSupp;
     private javax.swing.JButton btnajouter;
     private javax.swing.JComboBox<Article> cbxart;
