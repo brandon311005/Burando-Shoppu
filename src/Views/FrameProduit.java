@@ -32,7 +32,7 @@ public class FrameProduit extends javax.swing.JFrame {
     public FrameProduit() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Views/Logoo.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
     }
 
@@ -63,8 +63,10 @@ public class FrameProduit extends javax.swing.JFrame {
         txtqte = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtcard = new javax.swing.JTextField();
+        btnReturn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Produit");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -145,6 +147,16 @@ public class FrameProduit extends javax.swing.JFrame {
 
         jLabel5.setText("Id Catégorie");
 
+        btnReturn1.setBackground(new java.awt.Color(242, 242, 242));
+        btnReturn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn1.setBorderPainted(false);
+        btnReturn1.setContentAreaFilled(false);
+        btnReturn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,11 +211,15 @@ public class FrameProduit extends javax.swing.JFrame {
                                 .addGap(59, 59, 59)
                                 .addComponent(txtcard, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnReturn1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addComponent(btnReturn1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(txtidart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -384,6 +400,11 @@ public class FrameProduit extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnReturn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturn1ActionPerformed
+        // TODO add your handling code here:
+        new FramePrincipale().setVisible(true);
+    }//GEN-LAST:event_btnReturn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,6 +442,7 @@ public class FrameProduit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnListCmd;
+    private javax.swing.JButton btnReturn1;
     private javax.swing.JButton btnajouter;
     private javax.swing.JButton btnderriere;
     private javax.swing.JButton btnmodifier;

@@ -50,6 +50,7 @@ public class FrameClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,6 +68,14 @@ public class FrameClient extends javax.swing.JFrame {
         btnmodifier = new javax.swing.JButton();
         btnnouveau = new javax.swing.JButton();
         BtnListCmd = new javax.swing.JButton();
+        btnReturn1 = new javax.swing.JButton();
+
+        btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -149,6 +158,14 @@ public class FrameClient extends javax.swing.JFrame {
             }
         });
 
+        btnReturn1.setBackground(new java.awt.Color(102, 255, 255));
+        btnReturn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -195,11 +212,15 @@ public class FrameClient extends javax.swing.JFrame {
                             .addComponent(btnderriere)
                             .addComponent(btnmodifier, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnReturn1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addComponent(btnReturn1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(txtidclt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -398,9 +419,21 @@ public class FrameClient extends javax.swing.JFrame {
         new FrameListCmd(Clts.get(pos),Emplo).setVisible(true);
     }//GEN-LAST:event_BtnListCmdActionPerformed
 
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        // TODO add your handling code here:
+        new FrameClient(Emplo).setVisible(true);
+    }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnReturn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturn1ActionPerformed
+        // TODO add your handling code here:
+        new FramePrincipale().setVisible(true);
+    }//GEN-LAST:event_btnReturn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnListCmd;
+    private javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnReturn1;
     private javax.swing.JButton btnajouter;
     private javax.swing.JButton btnderriere;
     private javax.swing.JButton btnmodifier;
