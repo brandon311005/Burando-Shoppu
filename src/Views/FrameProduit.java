@@ -35,6 +35,7 @@ public class FrameProduit extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.setTitle("Burando Shoppu");
     }
 
     /**

@@ -39,6 +39,7 @@ public class FrameClient extends javax.swing.JFrame {
         this.Emplo=Emplo;
     ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.setTitle("Burando Shoppu");
     }
 
     /**
@@ -160,6 +161,8 @@ public class FrameClient extends javax.swing.JFrame {
 
         btnReturn1.setBackground(new java.awt.Color(102, 255, 255));
         btnReturn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn1.setBorderPainted(false);
+        btnReturn1.setContentAreaFilled(false);
         btnReturn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturn1ActionPerformed(evt);

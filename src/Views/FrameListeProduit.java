@@ -29,6 +29,7 @@ public class FrameListeProduit extends javax.swing.JFrame {
         initComponents();
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.setTitle("Burando Shoppu");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tableau.addColumn("Id Produit");
         tableau.addColumn("Nom");

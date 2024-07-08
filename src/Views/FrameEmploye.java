@@ -33,6 +33,7 @@ public class FrameEmploye extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.setTitle("Burando Shoppu");
     }
 
     /**
@@ -147,6 +148,8 @@ public class FrameEmploye extends javax.swing.JFrame {
 
         btnReturn1.setBackground(new java.awt.Color(242, 242, 242));
         btnReturn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn1.setBorderPainted(false);
+        btnReturn1.setContentAreaFilled(false);
         btnReturn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturn1ActionPerformed(evt);

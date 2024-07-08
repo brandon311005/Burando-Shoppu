@@ -32,6 +32,7 @@ public class FramePrincipale extends javax.swing.JFrame {
         initComponents();
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.setTitle("Burando Shoppu");
         setJMenuBar(jMenuBar2);
     }
 

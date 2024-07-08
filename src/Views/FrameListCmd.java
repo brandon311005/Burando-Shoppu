@@ -35,7 +35,7 @@ public class FrameListCmd extends javax.swing.JFrame {
         this.Emplo=Emplo;
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
-        
+        this.setTitle("Burando Shoppu");
     }
 
     /**
@@ -191,6 +191,8 @@ public class FrameListCmd extends javax.swing.JFrame {
         });
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn.setBorderPainted(false);
+        btnReturn.setContentAreaFilled(false);
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);

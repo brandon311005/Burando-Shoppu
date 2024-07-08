@@ -33,6 +33,7 @@ public class FrameRecherche extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/Logoo.png"));
         this.setIconImage(icon.getImage());
+        this.setTitle("Burando Shoppu");
     }
 
     /**
@@ -65,18 +66,6 @@ public class FrameRecherche extends javax.swing.JFrame {
         jLabel1.setText("Nom et Prénoms:");
 
         jLabel2.setText("Date Commande (yyyy/mm/dd)");
-
-        txtdatedebut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtdatedebutActionPerformed(evt);
-            }
-        });
-
-        txtdatefin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtdatefinActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("entre");
 
@@ -112,6 +101,8 @@ public class FrameRecherche extends javax.swing.JFrame {
         });
 
         btnReturn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/L.png"))); // NOI18N
+        btnReturn1.setBorderPainted(false);
+        btnReturn1.setContentAreaFilled(false);
         btnReturn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturn1ActionPerformed(evt);
@@ -184,14 +175,6 @@ public class FrameRecherche extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtdatedebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdatedebutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtdatedebutActionPerformed
-
-    private void txtdatefinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdatefinActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtdatefinActionPerformed
 
     private void btnrechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrechercherActionPerformed
         try {
